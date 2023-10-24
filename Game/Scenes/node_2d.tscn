@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsr5lvltckmtr"]
+
+[ext_resource type="Texture2D" uid="uid://db4saeaonow4u" path="res://Assets/map_13.png" id="1_ql401"]
+[ext_resource type="PackedScene" uid="uid://bl4d8u482ocni" path="res://Scenes/player.tscn" id="2_lxudn"]
+[ext_resource type="PackedScene" uid="uid://cpfspsuqpsv00" path="res://Scenes/surround.tscn" id="3_1bq2m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lwiw"]
+texture = ExtResource("1_ql401")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hlbmb"]
+sources/3 = SubResource("TileSetAtlasSource_7lwiw")
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-1, -2)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(73, 93)
+tile_set = SubResource("TileSet_hlbmb")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196613, 196611, 2, -196612, 196611, 2, -262139, 196611, 2, -262138, 196611, 2, -262129, 196611, 2, -262127, 196611, 2, -262128, 196611, 2, -262137, 196611, 2, -196611, 196611, 2, -720901, 196611, 2, -720899, 196611, 2, -720900, 196611, 2, -786427, 196611, 2, -786426, 196611, 2, -786425, 196611, 2, -786416, 196611, 2, -786417, 196611, 2, -786418, 196611, 2, -786414, 196611, 2, -786415, 196611, 2)
+
+[node name="player" parent="." instance=ExtResource("2_lxudn")]
+position = Vector2(0, -2)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(1, 2)
+
+[node name="surround2" parent="player" instance=ExtResource("3_1bq2m")]
