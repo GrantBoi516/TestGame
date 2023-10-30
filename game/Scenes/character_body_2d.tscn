@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://ddfbjau3mk0uv"]
+[gd_scene load_steps=34 format=3 uid="uid://ddfbjau3mk0uv"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_84ija"]
+[ext_resource type="Script" path="res://Scripts/character_body_2d.tres.gd" id="1_k4u3a"]
 [ext_resource type="Texture2D" uid="uid://crwmufq2bl0kj" path="res://Assets/Baseanims.png" id="2_e8rj5"]
+[ext_resource type="Script" path="res://Scripts/weapon.gd" id="3_0weqs"]
 [ext_resource type="Texture2D" uid="uid://b4tnqubdr4ihk" path="res://Assets/SASwing.png" id="4_ky1a0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lf5ai"]
@@ -239,9 +240,37 @@ tracks/0/keys = {
 "update": 0,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_mv1wb"]
+resource_name = "cooldown"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_ymaxj"]
-resource_name = "swing"
+resource_name = "swordSwing"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -255,29 +284,41 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q88up"]
 _data = {
 "RESET": SubResource("Animation_8gd5e"),
-"swing": SubResource("Animation_ymaxj")
+"cooldown": SubResource("Animation_mv1wb"),
+"swordSwing": SubResource("Animation_ymaxj")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4k3uq"]
-radius = 1.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k8s3k"]
+radius = 2.0
 height = 8.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
 scale = Vector2(10, 10)
-script = ExtResource("1_84ija")
+script = ExtResource("1_k4u3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1.19209e-07)
 scale = Vector2(0.291667, 0.21875)
 texture = ExtResource("2_e8rj5")
 hframes = 39
-frame = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_lf5ai")
 
@@ -293,9 +334,10 @@ active = true
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.541667, -0.215116)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="weapon" type="Area2D" parent="."]
+script = ExtResource("3_0weqs")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="weapon"]
 position = Vector2(0, 1.19209e-07)
 rotation = -1.57079
 scale = Vector2(0.166217, 0.223766)
@@ -303,13 +345,14 @@ texture = ExtResource("4_ky1a0")
 offset = Vector2(0, 10)
 hframes = 4
 
-[node name="WeaponAnim" type="AnimationPlayer" parent="CharacterBody2D"]
+[node name="WeaponAnim" type="AnimationPlayer" parent="weapon"]
 libraries = {
 "": SubResource("AnimationLibrary_q88up")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(6, 0)
-scale = Vector2(1.83941, 1)
-shape = SubResource("CapsuleShape2D_4k3uq")
+[node name="hitbox" type="CollisionShape2D" parent="weapon"]
+position = Vector2(6.8, -0.4)
+shape = SubResource("CapsuleShape2D_k8s3k")
 disabled = true
+
+[connection signal="body_entered" from="weapon" to="weapon" method="_on_body_entered"]

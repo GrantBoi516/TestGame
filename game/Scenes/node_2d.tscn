@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://k4hy4nj2tgwu"]
+[gd_scene load_steps=6 format=3 uid="uid://2uvcp2dgpgnv"]
 
 [ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://Scenes/character_body_2d.tscn" id="1_4uco0"]
 [ext_resource type="Texture2D" uid="uid://bnc3s4w3vmyhy" path="res://Assets/map_13.png" id="3_od4tw"]
+[ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://Scenes/skeleton.tscn" id="4_vg61b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0lqw"]
 texture = ExtResource("3_od4tw")
@@ -102,7 +103,6 @@ sources/2 = SubResource("TileSetAtlasSource_i0lqw")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_4uco0")]
 scale = Vector2(6, 6)
-speed = null
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
@@ -110,3 +110,7 @@ speed = null
 tile_set = SubResource("TileSet_0mubw")
 format = 2
 layer_0/tile_data = PackedInt32Array(-2, 327682, 2)
+
+[node name="skeleton" parent="." instance=ExtResource("4_vg61b")]
+position = Vector2(88, -1)
+scale = Vector2(1.5, 1.5)
