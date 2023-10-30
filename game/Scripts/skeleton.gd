@@ -24,4 +24,4 @@ func follow():#makes skeleton follow the player
 	target_position = (player_position - position).normalized()
 	if position.distance_to(player_position) > 3:
 		move_and_collide(target_position * speed)
-		look_at(player_position)
+	return player_position

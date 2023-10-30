@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var speed = 5.0
 @onready var weapon = $weapon
-
+@export var HP = 30
 
 func _physics_process(delta):
 	movement(velocity)
@@ -32,3 +32,8 @@ func movement(v):#player inputs for movement
 		$PlayerAnim/AnimTree.set("parameters/Walk/blend_position", v)
 	move_and_collide(v * speed)
 	return v
+func player_hit(damage):
+	HP -= damage
+	print("player was hit, HP:" + str(HP))
+	if HP <= 0:#add more complex death btw
+		queue_free()
