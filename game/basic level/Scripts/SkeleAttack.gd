@@ -6,6 +6,10 @@ extends Area2D
 @export var damage := 10
 @onready var skeleton = get_parent()
 
+func _ready():
+	$Sprite2D.hide()
+	
+	
 func _physics_process(delta):
 	look_at(player.position)#points swing towards player
 
@@ -16,9 +20,10 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body: Node) -> void:#detects when it collides with and enemy and deals damage
-	while body_entered:
-		if body.has_method("player_hit"):
-			anim.play("attack")
-			await get_tree().create_timer(.5).timeout
-func atk(body):
+	if body.has_method("player_hit"):
+		$Sprite2D.show()
+		anim.play("attack")
+		await get_tree().create_timer(.5).timeout
+		$Sprite2D.hide()
+func atk():
 	player.player_hit(damage)
