@@ -1,6 +1,7 @@
 extends Area2D
 @onready var anim = $WeaponAnim
 @export var damage := 10
+
 func _physics_process(delta):
 	look_at(get_global_mouse_position())#points sword towards mouse
 

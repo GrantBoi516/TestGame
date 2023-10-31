@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://2uvcp2dgpgnv"]
 
-[ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://Scenes/character_body_2d.tscn" id="1_4uco0"]
-[ext_resource type="Texture2D" uid="uid://bnc3s4w3vmyhy" path="res://Assets/map_13.png" id="3_od4tw"]
-[ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://Scenes/skeleton.tscn" id="4_vg61b"]
+[ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://basic level/Scenes/character_body_2d.tscn" id="1_4bcf7"]
+[ext_resource type="Texture2D" uid="uid://bnc3s4w3vmyhy" path="res://Assets/map_13.png" id="2_4jy6u"]
+[ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://basic level/Scenes/skeleton.tscn" id="3_shvj7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0lqw"]
-texture = ExtResource("3_od4tw")
+texture = ExtResource("2_4jy6u")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -99,9 +99,9 @@ texture = ExtResource("3_od4tw")
 [sub_resource type="TileSet" id="TileSet_0mubw"]
 sources/2 = SubResource("TileSetAtlasSource_i0lqw")
 
-[node name="Node2D" type="Node2D"]
+[node name="level" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_4uco0")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_4bcf7")]
 scale = Vector2(6, 6)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -111,6 +111,6 @@ tile_set = SubResource("TileSet_0mubw")
 format = 2
 layer_0/tile_data = PackedInt32Array(-2, 327682, 2)
 
-[node name="skeleton" parent="." instance=ExtResource("4_vg61b")]
+[node name="skeleton" parent="." instance=ExtResource("3_shvj7")]
 position = Vector2(88, -1)
 scale = Vector2(1.5, 1.5)

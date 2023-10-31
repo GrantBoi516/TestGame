@@ -6,10 +6,13 @@ extends CharacterBody2D
 var player_position
 var target_position
 @onready var player = get_parent().get_node("CharacterBody2D")
-
-
+@onready var attack = $SkeleAttack
 func _physics_process(delta):
 	follow()
+	animation(target_position)
+
+
+
 
 
 func get_hit(damage):#damages and deletes skeleton
@@ -24,4 +27,14 @@ func follow():#makes skeleton follow the player
 	target_position = (player_position - position).normalized()
 	if position.distance_to(player_position) > 3:
 		move_and_collide(target_position * speed)
+	return target_position
 	return player_position
+
+
+func animation(tp):
+		if tp == Vector2.ZERO:
+			$SkeleAnim/AnimationTree.get("parameters/playback").travel("Idle")
+		else:
+			$SkeleAnim/AnimationTree.get("parameters/playback").travel("Walk")
+			$SkeleAnim/AnimationTree.set("parameters/Idle/blend_position", tp)
+			$SkeleAnim/AnimationTree.set("parameters/Walk/blend_position", tp)

@@ -3,10 +3,13 @@ extends CharacterBody2D
 
 @export var speed = 5.0
 @onready var weapon = $weapon
-@export var HP = 30
-
+@export var HP = 100
 func _physics_process(delta):
 	movement(velocity)
+
+
+
+
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -36,4 +39,5 @@ func player_hit(damage):
 	HP -= damage
 	print("player was hit, HP:" + str(HP))
 	if HP <= 0:#add more complex death btw
+		#play death animation
 		queue_free()
