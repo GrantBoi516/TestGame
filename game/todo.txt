@@ -1,2 +1,0 @@
-todo:
-	allow skele to attack player
