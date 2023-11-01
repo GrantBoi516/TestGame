@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://2uvcp2dgpgnv"]
+[gd_scene load_steps=8 format=3 uid="uid://2uvcp2dgpgnv"]
 
 [ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://basic level/Scenes/character_body_2d.tscn" id="1_4bcf7"]
 [ext_resource type="Texture2D" uid="uid://bnc3s4w3vmyhy" path="res://Assets/map_13.png" id="2_4jy6u"]
 [ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://basic level/Scenes/skeleton.tscn" id="3_shvj7"]
+[ext_resource type="PackedScene" uid="uid://cmu8b0m1vgiid" path="res://basic level/Scenes/HUD.tscn" id="4_7qpvl"]
+[ext_resource type="Script" path="res://basic level/Scripts/HUD.gd" id="5_yts75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0lqw"]
 texture = ExtResource("2_4jy6u")
@@ -102,15 +104,21 @@ sources/2 = SubResource("TileSetAtlasSource_i0lqw")
 [node name="level" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_4bcf7")]
+position = Vector2(576, -328)
 scale = Vector2(6, 6)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, 3.8147e-06)
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(259, 72)
 tile_set = SubResource("TileSet_0mubw")
 format = 2
-layer_0/tile_data = PackedInt32Array(-2, 327682, 2)
+layer_0/tile_data = PackedInt32Array(-1966064, 196610, 0, -1966063, 196610, 0, -1966062, 196610, 0, -1966061, 196610, 0, -1966060, 196610, 0, -2293744, 196610, 0, -2293743, 196610, 0, -2228207, 196610, 0, -2293740, 196610, 0, -2293741, 196610, 0, -2228205, 196610, 0)
 
 [node name="skeleton" parent="." instance=ExtResource("3_shvj7")]
-position = Vector2(88, -1)
+position = Vector2(664, -328)
 scale = Vector2(1.5, 1.5)
+
+[node name="HUD" parent="." instance=ExtResource("4_7qpvl")]
+script = ExtResource("5_yts75")

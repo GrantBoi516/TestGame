@@ -18,13 +18,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func movement(v):#player inputs for movement
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("d"):
 		v.x += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("a"):
 		v.x -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("s"):
 		v.y += 1
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("w"):
 		v.y -= 1
 	v = v.normalized()
 	if v == Vector2.ZERO:

@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmu8b0m1vgiid"]
+
+[ext_resource type="Texture2D" uid="uid://bv0r66x1k3gi1" path="res://Assets/PH-Heart.png" id="1_y2rs5"]
+[ext_resource type="Texture2D" uid="uid://4mnovrd21qx3" path="res://Assets/PH-SPbar.png" id="2_8r3df"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HP" type="HFlowContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="H1" type="Sprite2D" parent="HP"]
+position = Vector2(104, 40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_y2rs5")
+hframes = 2
+
+[node name="H2" type="Sprite2D" parent="HP"]
+position = Vector2(64, 40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_y2rs5")
+hframes = 2
+
+[node name="H3" type="Sprite2D" parent="HP"]
+position = Vector2(143, 40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_y2rs5")
+hframes = 2
+
+[node name="H4" type="Sprite2D" parent="HP"]
+position = Vector2(24, 40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_y2rs5")
+hframes = 2
+
+[node name="SP" type="HFlowContainer" parent="."]
+offset_left = 1108.0
+offset_top = 1.0
+offset_right = 1148.0
+offset_bottom = 41.0
+
+[node name="SP1" type="Sprite2D" parent="SP"]
+position = Vector2(-76, 36)
+scale = Vector2(3, 3)
+texture = ExtResource("2_8r3df")
+hframes = 6
+frame = 3

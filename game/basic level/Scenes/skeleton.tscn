@@ -251,7 +251,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwqdn"]
-size = Vector2(12, 19)
+size = Vector2(8, 19)
 
 [node name="skeleton" type="CharacterBody2D"]
 script = ExtResource("1_x4ljk")
@@ -282,6 +282,7 @@ position = Vector2(0, -1)
 script = ExtResource("3_eqhje")
 
 [node name="Sprite2D" type="Sprite2D" parent="SkeleAttack"]
+position = Vector2(-5, 2)
 rotation = 3.1357
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_cw6eb")
@@ -294,8 +295,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SkeleAttack"]
-visible = false
-position = Vector2(19, -2)
+position = Vector2(11, -1)
 shape = SubResource("RectangleShape2D_nwqdn")
 
 [connection signal="body_entered" from="SkeleAttack" to="SkeleAttack" method="_on_body_entered"]
