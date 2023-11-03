@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var skeleHP = 30
+@export var skeleHP = 2
 @export var speed = 1
 var player_position
 var target_position
@@ -32,7 +32,7 @@ func follow():#makes skeleton follow the player
 	return player_position
 
 
-func animation(tp):
+func animation(tp):#adjusts animation tree based on movements
 		if tp == Vector2.ZERO:
 			$SkeleAnim/AnimationTree.get("parameters/playback").travel("Idle")
 		else:

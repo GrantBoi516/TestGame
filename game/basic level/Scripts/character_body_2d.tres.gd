@@ -1,13 +1,12 @@
 extends CharacterBody2D
 
 
-@export var speed = 5.0
+@export var speed = 3.0
 @onready var weapon = $weapon
-@export var HP = 100
+@export var HP = 4
+
 func _physics_process(delta):
-	movement(velocity)
-
-
+	movement(velocity)#calls movement
 
 
 
@@ -15,7 +14,6 @@ func _physics_process(delta):
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):#attack action
 		weapon.attack()
-
 
 func movement(v):#player inputs for movement
 	if Input.is_action_pressed("d"):
@@ -35,9 +33,6 @@ func movement(v):#player inputs for movement
 		$PlayerAnim/AnimTree.set("parameters/Walk/blend_position", v)
 	move_and_collide(v * speed)
 	return v
-func player_hit(damage):
+func player_hit(damage):#handles getting hit
 	HP -= damage
 	print("player was hit, HP:" + str(HP))
-	if HP <= 0:#add more complex death btw
-		#play death animation
-		queue_free()

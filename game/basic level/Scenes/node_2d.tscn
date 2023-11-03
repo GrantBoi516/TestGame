@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bnc3s4w3vmyhy" path="res://Assets/map_13.png" id="2_4jy6u"]
 [ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://basic level/Scenes/skeleton.tscn" id="3_shvj7"]
 [ext_resource type="PackedScene" uid="uid://cmu8b0m1vgiid" path="res://basic level/Scenes/HUD.tscn" id="4_7qpvl"]
-[ext_resource type="Script" path="res://basic level/Scripts/HUD.gd" id="5_yts75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0lqw"]
 texture = ExtResource("2_4jy6u")
@@ -101,6 +100,12 @@ texture = ExtResource("2_4jy6u")
 [sub_resource type="TileSet" id="TileSet_0mubw"]
 sources/2 = SubResource("TileSetAtlasSource_i0lqw")
 
+[sub_resource type="GDScript" id="GDScript_45gir"]
+script/source = "extends CanvasLayer
+
+
+"
+
 [node name="level" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_4bcf7")]
@@ -121,4 +126,4 @@ position = Vector2(664, -328)
 scale = Vector2(1.5, 1.5)
 
 [node name="HUD" parent="." instance=ExtResource("4_7qpvl")]
-script = ExtResource("5_yts75")
+script = SubResource("GDScript_45gir")
