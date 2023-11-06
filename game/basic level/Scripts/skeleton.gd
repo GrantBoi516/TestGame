@@ -24,10 +24,13 @@ func get_hit(damage):#damages and deletes skeleton
 
 
 func follow():#makes skeleton follow the player
-	player_position = player.position
-	target_position = (player_position - position).normalized()
-	if position.distance_to(player_position) > 3:
-		move_and_collide(target_position * speed)
+	if player.HP <= 0:
+		target_position = Vector2.ZERO
+	else:
+		player_position = player.position
+		target_position = (player_position - position).normalized()
+		if position.distance_to(player_position) > 3:
+			move_and_collide(target_position * speed)
 	return target_position
 	return player_position
 

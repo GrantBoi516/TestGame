@@ -5,6 +5,7 @@ extends HFlowContainer
 func _process(delta):#sets the number of hearts filled on the display by the players HP
 	if player.HP <= 0:
 		HT0()
+		player.die()
 	else:
 		if player.HP <= 1:
 			HT1()

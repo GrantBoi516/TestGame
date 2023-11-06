@@ -36,3 +36,9 @@ func movement(v):#player inputs for movement
 func player_hit(damage):#handles getting hit
 	HP -= damage
 	print("player was hit, HP:" + str(HP))
+func die():
+	#overlay death screen
+	$Sprite2D.hide()
+	get_node("hitbox").disabled = true
+	weapon.get_node("Sprite2D").hide()#change to turn guy to ghost maybe
+	weapon.get_node("hitbox").disabled = true

@@ -255,11 +255,12 @@ size = Vector2(8, 19)
 
 [node name="skeleton" type="CharacterBody2D"]
 script = ExtResource("1_x4ljk")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_fi2nq")
 hframes = 16
-frame = 10
+frame = 11
 
 [node name="SkeleAnim" type="AnimationPlayer" parent="."]
 libraries = {
