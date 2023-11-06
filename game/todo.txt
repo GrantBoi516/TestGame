@@ -1,8 +1,0 @@
-todo:
-	make basic wall object
-	make level 
-	2 enemy types
-	weapon type?
-	make combat cleaner
-	pickups: coins + hearts + weapon change
-	knockback system
