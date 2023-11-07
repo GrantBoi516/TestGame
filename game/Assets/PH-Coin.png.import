@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cevkmgdm0n45q"
-path="res://.godot/imported/FloorTileset.png-2e112bd8f12025913fa5d2469f78a8ca.ctex"
+uid="uid://cmh18usa37da0"
+path="res://.godot/imported/PH-Coin.png-085d4324dfd881891012b79b74f41445.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/FloorTileset.png"
-dest_files=["res://.godot/imported/FloorTileset.png-2e112bd8f12025913fa5d2469f78a8ca.ctex"]
+source_file="res://Assets/PH-Coin.png"
+dest_files=["res://.godot/imported/PH-Coin.png-085d4324dfd881891012b79b74f41445.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

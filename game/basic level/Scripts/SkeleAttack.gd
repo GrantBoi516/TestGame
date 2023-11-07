@@ -2,7 +2,7 @@ extends Area2D
 
 
 @onready var anim = $SkeleAttack
-@onready var player = get_parent().get_parent().get_node("CharacterBody2D")
+@onready var player = get_parent().get_parent().get_node("/root/level/CharacterBody2D")
 @export var damage := 1
 @onready var skeleton = get_parent()
 

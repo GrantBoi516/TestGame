@@ -45,6 +45,12 @@ d={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
+environment/ssil/quality=1
 environment/defaults/default_clear_color=Color(0.329412, 0.262745, 0.427451, 1)
+anti_aliasing/quality/msaa_2d=1
+anti_aliasing/quality/screen_space_aa=1
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
+2d/sdf/oversize=0
+2d/sdf/scale=0
