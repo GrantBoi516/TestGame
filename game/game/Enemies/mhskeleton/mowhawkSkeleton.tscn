@@ -1,9 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://d3x6nbyep3fdr"]
+[gd_scene load_steps=31 format=3 uid="uid://bgg3f84vxqocc"]
 
-[ext_resource type="Script" path="res://basic level/Scripts/skeleton.gd" id="1_x4ljk"]
-[ext_resource type="Texture2D" uid="uid://dbgria4lip7ua" path="res://Assets/Skeleton A.png" id="2_fi2nq"]
-[ext_resource type="Texture2D" uid="uid://bnt8idarputr6" path="res://Assets/SkeletonSwing.png" id="3_cw6eb"]
-[ext_resource type="Script" path="res://basic level/Scripts/SkeleAttack.gd" id="3_eqhje"]
+[ext_resource type="Script" path="res://Enemies/mhskeleton/mohawkSkeleton.gd" id="1_2mddr"]
+[ext_resource type="Texture2D" uid="uid://codprx5qff25u" path="res://Assets/Skeleton B.png" id="2_8ddg0"]
+[ext_resource type="Script" path="res://Enemies/mhskeleton/mohawkSkeleAttack.gd" id="3_khoyk"]
+[ext_resource type="Texture2D" uid="uid://bnt8idarputr6" path="res://Assets/SkeletonSwing.png" id="4_c261s"]
 
 [sub_resource type="Animation" id="Animation_wafqt"]
 resource_name = "downWalk"
@@ -253,14 +253,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwqdn"]
 size = Vector2(8, 19)
 
-[node name="skeleton" type="CharacterBody2D"]
-script = ExtResource("1_x4ljk")
-metadata/_edit_group_ = true
+[node name="mhskeleton" type="CharacterBody2D"]
+script = ExtResource("1_2mddr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fi2nq")
+texture = ExtResource("2_8ddg0")
 hframes = 16
-frame = 8
+frame = 11
 
 [node name="SkeleAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -280,13 +279,13 @@ shape = SubResource("CapsuleShape2D_iwxfk")
 
 [node name="SkeleAttack" type="Area2D" parent="."]
 position = Vector2(0, -1)
-script = ExtResource("3_eqhje")
+script = ExtResource("3_khoyk")
 
 [node name="Sprite2D" type="Sprite2D" parent="SkeleAttack"]
 position = Vector2(-5, 2)
 rotation = 3.1357
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_cw6eb")
+texture = ExtResource("4_c261s")
 offset = Vector2(-30, 0)
 hframes = 3
 

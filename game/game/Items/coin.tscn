@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5rr0365d4cl2"]
 
 [ext_resource type="Texture2D" uid="uid://cmh18usa37da0" path="res://Assets/PH-Coin.png" id="1_768ha"]
-[ext_resource type="Script" path="res://basic level/Scripts/coin.gd" id="1_bklb0"]
+[ext_resource type="Script" path="res://Items/coin.gd" id="1_sn1rv"]
 
 [sub_resource type="Animation" id="Animation_tgey6"]
 resource_name = "spin"
@@ -25,11 +25,12 @@ _data = {
 "spin": SubResource("Animation_tgey6")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1v8t8"]
-size = Vector2(5.33333, 7.33333)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1dh5"]
+size = Vector2(5.33333, 7)
 
-[node name="coin" type="Node2D"]
+[node name="coin" type="Area2D"]
 scale = Vector2(1.5, 1.5)
+script = ExtResource("1_sn1rv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_768ha")
@@ -40,11 +41,8 @@ libraries = {
 "": SubResource("AnimationLibrary_8lxx3")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("1_bklb0")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.33333)
+shape = SubResource("RectangleShape2D_h1dh5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1.66667)
-shape = SubResource("RectangleShape2D_1v8t8")
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

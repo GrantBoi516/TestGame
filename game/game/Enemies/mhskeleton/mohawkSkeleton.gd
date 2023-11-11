@@ -1,18 +1,24 @@
 extends CharacterBody2D
 
 
-@export var skeleHP = 2
-@export var speed = 1
+@export var skeleHP = 4
+@export var speed = 2
 var player_position
 var target_position
-@onready var player = get_parent().get_node("CharacterBody2D")
+@onready var player = get_parent().get_node("/root/level/CharacterBody2D")
 @onready var attack = $SkeleAttack
+@onready var coin = load("res://Items/coin.tscn")
+@onready var heart = load("res://Items/heart.tscn")
+var random = RandomNumberGenerator.new()
+var tmp = 1
+
+
+
 
 func _physics_process(delta):
-	if position.distance_to(player.position) < 200:
+	if position.distance_to(player.position) < 200:#gives skeleton a following distance
 		follow()
 	animation(target_position)
-
 
 
 
@@ -20,8 +26,12 @@ func _physics_process(delta):
 func get_hit(damage):#damages and deletes skeleton
 	skeleHP -= damage
 	print("enemy was hit, HP:" + str(skeleHP))
-	if skeleHP <= 0:#add more complex death btw
+	if skeleHP <= 0:
+		heart_drop()
+		coin_drop()
 		queue_free()
+
+
 
 
 func follow():#makes skeleton follow the player
@@ -34,6 +44,8 @@ func follow():#makes skeleton follow the player
 			move_and_collide(target_position * speed)
 	return target_position
 	return player_position
+
+
 
 
 func animation(tp):#adjusts animation tree based on movements
@@ -50,3 +62,33 @@ func animation(tp):#adjusts animation tree based on movements
 	if position.distance_to(player.position) < 30:
 		$SkeleAnim/AnimationTree.get("parameters/playback").travel("Idle")
 		return
+
+
+
+
+func coin_drop():
+	while tmp <= 3:
+		random.randomize()
+		var x = random.randi_range(-10, 10)
+		var y = random.randi_range(-10, 10)
+		var instancedCoin = coin.instantiate()
+		get_parent().add_child(instancedCoin)
+		instancedCoin.position.y = position.y + y
+		instancedCoin.position.x = position.x + x
+		tmp += 1
+	tmp = 1
+
+
+
+
+func heart_drop():
+	while tmp <= 3:
+		random.randomize()
+		var x = random.randi_range(-10, 10)
+		var y = random.randi_range(-10, 10)
+		var instancedHeart =heart.instantiate()
+		get_parent().add_child(instancedHeart)
+		instancedHeart.position.y = position.y + y
+		instancedHeart.position.x = position.x + x
+		tmp += 1
+	tmp = 1

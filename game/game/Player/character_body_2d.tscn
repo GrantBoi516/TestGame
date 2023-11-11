@@ -1,8 +1,8 @@
 [gd_scene load_steps=34 format=3 uid="uid://ddfbjau3mk0uv"]
 
-[ext_resource type="Script" path="res://basic level/Scripts/character_body_2d.tres.gd" id="1_7jvle"]
+[ext_resource type="Script" path="res://Player/character_body_2d.tres.gd" id="1_uhvdi"]
 [ext_resource type="Texture2D" uid="uid://crwmufq2bl0kj" path="res://Assets/Baseanims.png" id="2_e8rj5"]
-[ext_resource type="Script" path="res://basic level/Scripts/weapon.gd" id="3_oi45f"]
+[ext_resource type="Script" path="res://Player/weapon.gd" id="3_w56ay"]
 [ext_resource type="Texture2D" uid="uid://b4tnqubdr4ihk" path="res://Assets/SASwing.png" id="4_ky1a0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lf5ai"]
@@ -310,7 +310,7 @@ height = 8.0
 
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(4, 4)
-script = ExtResource("1_7jvle")
+script = ExtResource("1_uhvdi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1.19209e-07)
@@ -334,10 +334,10 @@ active = true
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.541667, -0.215116)
 
-[node name="weapon" type="Area2D" parent="."]
-script = ExtResource("3_oi45f")
+[node name="sword" type="Area2D" parent="."]
+script = ExtResource("3_w56ay")
 
-[node name="Sprite2D" type="Sprite2D" parent="weapon"]
+[node name="Sprite2D" type="Sprite2D" parent="sword"]
 position = Vector2(0, 1.19209e-07)
 rotation = -1.57079
 scale = Vector2(0.166217, 0.223766)
@@ -345,14 +345,14 @@ texture = ExtResource("4_ky1a0")
 offset = Vector2(0, 10)
 hframes = 4
 
-[node name="WeaponAnim" type="AnimationPlayer" parent="weapon"]
+[node name="WeaponAnim" type="AnimationPlayer" parent="sword"]
 libraries = {
 "": SubResource("AnimationLibrary_q88up")
 }
 
-[node name="hitbox" type="CollisionShape2D" parent="weapon"]
+[node name="hitbox" type="CollisionShape2D" parent="sword"]
 position = Vector2(7.2, -0.1)
 shape = SubResource("CapsuleShape2D_k8s3k")
 disabled = true
 
-[connection signal="body_entered" from="weapon" to="weapon" method="_on_body_entered"]
+[connection signal="body_entered" from="sword" to="sword" method="_on_body_entered"]
