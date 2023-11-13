@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnr733wi2ii5b"]
+
+[ext_resource type="Script" path="res://Enviro/skelspawn.gd" id="1_wybhp"]
+[ext_resource type="Texture2D" uid="uid://dl8rr36xoet8j" path="res://icon.svg" id="2_gebi8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ffh"]
+size = Vector2(16, 19)
+
+[node name="skelspawn" type="Area2D"]
+script = ExtResource("1_wybhp")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.132812)
+texture = ExtResource("2_gebi8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k5ffh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
