@@ -1,7 +1,0 @@
-todo:
-	make basic level with tileset and walls
-	weapon type?
-	weapon change
-	knockback system
-	skelewiz
-	make enemies drop loot
