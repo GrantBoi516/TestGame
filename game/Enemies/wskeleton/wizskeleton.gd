@@ -42,7 +42,6 @@ func knockback():
 	var knockback_position = -(player_position - position).normalized() * 80
 	target_position = knockback_position
 
-
 func follow():
 	if player.HP <= 0:
 		target_position = stop
@@ -52,11 +51,14 @@ func follow():
 	move_and_collide(target_position * speed)
 
 func attack():
-	var InstancedFireball = fireball.instantiate()
-	get_tree().current_scene.add_child.call_deferred(InstancedFireball)
-	InstancedFireball.position = position
-	var direction = self.global_position.direction_to(player.position)
-	InstancedFireball.rotation = direction.angle()
+	if player.HP <= 0:
+		return
+	else:
+		var InstancedFireball = fireball.instantiate()
+		get_tree().current_scene.add_child.call_deferred(InstancedFireball)
+		InstancedFireball.position = position
+		var direction = self.global_position.direction_to(player.position)
+		InstancedFireball.rotation = direction.angle()
 
 func animation(tp):#adjusts animation tree based on movements
 	if position.distance_to(player.position) > follow_range:
@@ -82,7 +84,7 @@ func coin_drop():
 		var x = random.randi_range(-10, 10)
 		var y = random.randi_range(-10, 10)
 		var instancedCoin = coin.instantiate()
-		get_parent().add_child(instancedCoin)
+		get_parent().call_deferred("add_child", instancedCoin)
 		instancedCoin.position.y = position.y + y
 		instancedCoin.position.x = position.x + x
 		tmp += 1
@@ -97,7 +99,7 @@ func heart_drop():
 		var x = random.randi_range(-10, 10)
 		var y = random.randi_range(-10, 10)
 		var instancedHeart =heart.instantiate()
-		get_parent().add_child(instancedHeart)
+		get_parent().call_deferred("add_child", instancedHeart)
 		instancedHeart.position.y = position.y + y
 		instancedHeart.position.x = position.x + x
 		tmp += 1
@@ -105,6 +107,8 @@ func heart_drop():
 
 
 func _on_area_2d_body_entered(_body: Node):
-	attack()
+	$Area2D/AnimationPlayer.play("attack")
+
+
 
 

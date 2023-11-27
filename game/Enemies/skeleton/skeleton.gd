@@ -81,7 +81,7 @@ func coin_drop():
 		var x = random.randi_range(-10, 10)
 		var y = random.randi_range(-10, 10)
 		var instancedCoin = coin.instantiate()
-		get_parent().add_child(instancedCoin)
+		get_parent().call_deferred("add_child", instancedCoin)
 		instancedCoin.position.y = position.y + y
 		instancedCoin.position.x = position.x + x
 		tmp += 1
@@ -97,7 +97,7 @@ func heart_drop():
 		var x = random.randi_range(-10, 10)
 		var y = random.randi_range(-10, 10)
 		var instancedHeart =heart.instantiate()
-		get_parent().add_child(instancedHeart)
+		get_parent().call_deferred("add_child", instancedHeart)
 		instancedHeart.position.y = position.y + y
 		instancedHeart.position.x = position.x + x
 		tmp += 1

@@ -1,7 +1,9 @@
 extends Area2D
 @onready var anim = $WeaponAnim
 @export var damage := 1
-
+var sword = 1
+var axe = 2
+@export var what_weapon = sword
 
 
 
@@ -11,9 +13,11 @@ func _physics_process(_delta):
 
 
 
-func attack():#attack method referenced in parent script
+func sword_attack():#attack method referenced in parent script
 	anim.play("swordSwing")
-
+func attack():
+	if what_weapon == sword:
+		sword_attack()
 
 
 

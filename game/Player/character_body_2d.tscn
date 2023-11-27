@@ -296,6 +296,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q88up"]
 _data = {
@@ -353,6 +365,5 @@ libraries = {
 [node name="hitbox" type="CollisionShape2D" parent="sword"]
 position = Vector2(7.2, -0.1)
 shape = SubResource("CapsuleShape2D_k8s3k")
-disabled = true
 
 [connection signal="body_entered" from="sword" to="sword" method="_on_body_entered"]

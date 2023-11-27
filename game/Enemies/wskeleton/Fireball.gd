@@ -27,6 +27,8 @@ func _on_body_entered(body: Node) -> void:
 	if body.has_method("player_hit"):
 		body.player_hit(damage)
 		destroy()
+	if body is StaticBody2D:
+		destroy()
 
 
 
