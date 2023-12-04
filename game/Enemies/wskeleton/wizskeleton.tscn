@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://cy3iuknbsshv"]
 
 [ext_resource type="Script" path="res://Enemies/wskeleton/wizskeleton.gd" id="1_fx6xo"]
-[ext_resource type="Texture2D" uid="uid://dfoc8bswh5db1" path="res://Assets/Wiz-Skeleton.png" id="2_ri8wo"]
+[ext_resource type="Texture2D" uid="uid://b7wgwac53sl5y" path="res://Assets/Wiz-Skeleton (1).png" id="2_4t0gw"]
 
 [sub_resource type="Animation" id="Animation_asq2i"]
 length = 0.001
@@ -247,9 +247,9 @@ _data = {
 script = ExtResource("1_fx6xo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ri8wo")
+texture = ExtResource("2_4t0gw")
 hframes = 16
-frame = 11
+frame = 9
 
 [node name="SkeleAnim" type="AnimationPlayer" parent="."]
 libraries = {

@@ -2,24 +2,32 @@ extends CharacterBody2D
 
 
 @export var speed = 3.0
-@onready var weapon = $sword
 @export var HP = 4
 @export var max_HP = 4
 @export var coins = 0
+@onready var sword = $sword
+@onready var axe = $axe
+@export var weapon_val = "sword"
+@onready var weapon = sword
 
 
+var instancedAxe = load("res://Player/axe.tscn")
 func _physics_process(_delta):
 	get_parent().get_node("HUD/CC/Label").text = "coins:" + str(coins)
 	movement(velocity)#calls movement
-
-
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("click"):#attack action
-		weapon.attack()
-
-
+	
+	
+func _processAxe(delta):
+	while weapon_val == "axe":
+		sword.get_node("hitbox").disabled = true
+		sword.get_node("Sprite2D").hide
+		axe.get_node("hitbox").disabled = false
+		weapon = axe
+func _processSword(delta):
+	while weapon_val == "axe":
+		axe.get_node("hitbox").disabled = true
+		axe.get_node("Sprite2D").hide
+		sword.get_node("hitbox").disabled = false
 
 
 func movement(v):#player inputs for movement
@@ -43,8 +51,12 @@ func movement(v):#player inputs for movement
 	move_and_collide(v * speed)
 	return v
 
-
-
+func axe_change():
+	weapon = axe
+	weapon_val = "axe"
+func sword_change():
+	weapon = sword
+	weapon_val = "sword"
 
 func player_hit(damage):#handles getting hit
 	HP -= damage
@@ -59,7 +71,7 @@ func die():
 	get_parent().add_child(deathscreen)
 	$Sprite2D.hide()
 	get_node("hitbox").disabled = true
-	weapon.get_node("Sprite2D").hide()#change to turn guy to ghost maybe
+	weapon.get_node("Sprite2D").hide()
 	weapon.get_node("hitbox").disabled = true
 	
 
@@ -74,3 +86,9 @@ func get_coin():#adds a coin
 func get_heart():#adds a heart
 	HP += 1
 	print("got heart")
+
+
+
+func _unhandled_input(event: InputEvent):
+	if event.is_action_pressed("click"):#attack action
+		weapon.attack()

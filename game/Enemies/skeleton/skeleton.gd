@@ -9,6 +9,7 @@ var target_position
 @onready var attack = $SkeleAttack
 @onready var coin = load("res://Items/coin.tscn")
 @onready var heart = load("res://Items/heart.tscn")
+@onready var SP = get_parent().get_node("HUD/SP")
 var random = RandomNumberGenerator.new()
 @export var follow_range = 200
 var tmp = 1
@@ -29,6 +30,7 @@ func get_hit(damage):#damages and deletes skeleton
 	skeleHP -= damage
 	print("enemy was hit, HP:" + str(skeleHP))
 	if skeleHP <= 0:
+		SP.plus_SP()
 		coin_drop()
 		heart_drop()
 		queue_free()

@@ -1,9 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://ddfbjau3mk0uv"]
+[gd_scene load_steps=27 format=3 uid="uid://ddfbjau3mk0uv"]
 
 [ext_resource type="Script" path="res://Player/character_body_2d.tres.gd" id="1_uhvdi"]
 [ext_resource type="Texture2D" uid="uid://crwmufq2bl0kj" path="res://Assets/Baseanims.png" id="2_e8rj5"]
-[ext_resource type="PackedScene" uid="uid://c22sxcu632qu8" path="res://Player/axe.tscn" id="3_ek63u"]
-[ext_resource type="PackedScene" uid="uid://du5xbnyxbjpim" path="res://Player/sword.tscn" id="4_mw8vb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lf5ai"]
 radius = 2.0
@@ -229,6 +227,10 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_uhvdi")
+speed = null
+HP = null
+max_HP = null
+coins = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1.19209e-07)
@@ -251,7 +253,3 @@ anim_player = NodePath("..")
 active = true
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.541667, -0.215116)
-
-[node name="axe" parent="." instance=ExtResource("3_ek63u")]
-
-[node name="sword" parent="." instance=ExtResource("4_mw8vb")]

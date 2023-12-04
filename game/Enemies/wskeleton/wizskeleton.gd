@@ -8,6 +8,7 @@ var target_position
 @onready var player = get_parent().get_node("/root/level/CharacterBody2D")
 @onready var coin = load("res://Items/coin.tscn")
 @onready var heart = load("res://Items/heart.tscn")
+@onready var SP = get_parent().get_node("HUD/SP")
 @onready var follow_range = 200
 @onready var stop_range = 100
 var random = RandomNumberGenerator.new()
@@ -30,11 +31,11 @@ func get_hit(damage):#damages and deletes skeleton
 	skeleHP -= damage
 	print("enemy was hit, HP:" + str(skeleHP))
 	if skeleHP <= 0:
+		SP.plus_SP()
 		coin_drop()
 		heart_drop()
 		queue_free()
 	knockback()
-	
 	
 	
 	

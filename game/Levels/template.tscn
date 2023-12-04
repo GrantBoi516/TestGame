@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2uvcp2dgpgnv"]
+[gd_scene load_steps=13 format=3 uid="uid://2uvcp2dgpgnv"]
 
 [ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://Player/character_body_2d.tscn" id="1_hr87b"]
 [ext_resource type="PackedScene" uid="uid://cmu8b0m1vgiid" path="res://Menus/HUD.tscn" id="2_qioc0"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://Enemies/skeleton/skeleton.tscn" id="5_cqalc"]
 [ext_resource type="PackedScene" uid="uid://b457nhgfmiyk3" path="res://Enviro/wall.tscn" id="6_tinjn"]
 [ext_resource type="PackedScene" uid="uid://cy3iuknbsshv" path="res://Enemies/wskeleton/wizskeleton.tscn" id="7_s7o7n"]
+[ext_resource type="PackedScene" uid="uid://bgg3f84vxqocc" path="res://Enemies/mhskeleton/mowhawkSkeleton.tscn" id="8_d0qn5"]
+[ext_resource type="PackedScene" uid="uid://dmkp0cco3geso" path="res://Items/axePickup.tscn" id="9_nbb5w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8vdd"]
 texture = ExtResource("3_ou63n")
@@ -64,3 +66,9 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="wizskeleton" parent="." instance=ExtResource("7_s7o7n")]
 position = Vector2(236, -366)
+
+[node name="mhskeleton" parent="." instance=ExtResource("8_d0qn5")]
+position = Vector2(536, -335)
+
+[node name="axePickup" parent="." instance=ExtResource("9_nbb5w")]
+position = Vector2(334, -88)
