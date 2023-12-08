@@ -1,9 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://bgg3f84vxqocc"]
+[gd_scene load_steps=31 format=3 uid="uid://dnsgm5sr8ymom"]
 
-[ext_resource type="Script" path="res://Enemies/mhskeleton/mohawkSkeleton.gd" id="1_2mddr"]
-[ext_resource type="Texture2D" uid="uid://codprx5qff25u" path="res://Assets/Skeleton B.png" id="2_8ddg0"]
-[ext_resource type="Script" path="res://Enemies/mhskeleton/mohawkSkeleAttack.gd" id="3_khoyk"]
-[ext_resource type="Texture2D" uid="uid://bnt8idarputr6" path="res://Assets/SkeletonSwing.png" id="4_c261s"]
+[ext_resource type="Script" path="res://Enemies/skeleton/skeleton.gd" id="1_wt74u"]
+[ext_resource type="Texture2D" uid="uid://cfofbdiv1k0ow" path="res://Assets/Skeleton-S.png" id="2_yc8lx"]
+[ext_resource type="Script" path="res://Enemies/skeleton/SkeleAttack.gd" id="3_wdu4r"]
+[ext_resource type="Texture2D" uid="uid://bnt8idarputr6" path="res://Assets/SkeletonSwing.png" id="4_d8ccy"]
 
 [sub_resource type="Animation" id="Animation_wafqt"]
 resource_name = "downWalk"
@@ -217,7 +217,6 @@ height = 24.0
 
 [sub_resource type="Animation" id="Animation_6lree"]
 resource_name = "attack"
-length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -238,7 +237,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -254,14 +253,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwqdn"]
 size = Vector2(8, 19)
 
-[node name="mhskeleton" type="CharacterBody2D"]
-scale = Vector2(2, 2)
-script = ExtResource("1_2mddr")
+[node name="skeleton" type="CharacterBody2D"]
+script = ExtResource("1_wt74u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_8ddg0")
+texture = ExtResource("2_yc8lx")
 hframes = 16
-frame = 8
+frame = 10
 
 [node name="SkeleAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -281,13 +279,13 @@ shape = SubResource("CapsuleShape2D_iwxfk")
 
 [node name="SkeleAttack" type="Area2D" parent="."]
 position = Vector2(0, -1)
-script = ExtResource("3_khoyk")
+script = ExtResource("3_wdu4r")
 
 [node name="Sprite2D" type="Sprite2D" parent="SkeleAttack"]
 position = Vector2(-5, 2)
 rotation = 3.1357
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_c261s")
+texture = ExtResource("4_d8ccy")
 offset = Vector2(-30, 0)
 hframes = 3
 

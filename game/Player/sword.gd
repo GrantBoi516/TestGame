@@ -5,10 +5,11 @@ extends Area2D
 
 
 func _physics_process(_delta):
-	look_at(get_global_mouse_position())#points sword towards mouse
+	if not anim.is_playing():
+		look_at(get_global_mouse_position())
 
 
-func sword_attack():#attack method referenced in parent script
+func sword_attack():
 	anim.play("swordSwing")
 	
 func attack():
@@ -16,6 +17,6 @@ func attack():
 
 
 
-func _on_body_entered(body: Node) -> void:#detects when it collides with and enemy and deals damage
+func _on_body_entered(body: Node) -> void:
 	if body.has_method("get_hit"):
 		body.get_hit(damage)

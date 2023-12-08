@@ -1,20 +1,19 @@
 extends Area2D
 @onready var anim = $WeaponAnim
-@export var damage := 2
+@export var damage := 1
 
 func _ready():
 	$Sprite2D.hide()
 
 func _physics_process(_delta):
-	if not anim.is_playing():
-		look_at(get_global_mouse_position())
+	look_at(get_global_mouse_position())
 
 
-func axe_attack():
-	anim.play("axeSwing")
+func rapier_attack():
+	anim.play("firstSwing")
 	
 func attack():
-		axe_attack()
+		rapier_attack()
 
 
 

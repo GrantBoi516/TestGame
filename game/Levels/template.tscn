@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://2uvcp2dgpgnv"]
+[gd_scene load_steps=16 format=3 uid="uid://2uvcp2dgpgnv"]
 
 [ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://Player/character_body_2d.tscn" id="1_hr87b"]
 [ext_resource type="PackedScene" uid="uid://cmu8b0m1vgiid" path="res://Menus/HUD.tscn" id="2_qioc0"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cy3iuknbsshv" path="res://Enemies/wskeleton/wizskeleton.tscn" id="7_s7o7n"]
 [ext_resource type="PackedScene" uid="uid://bgg3f84vxqocc" path="res://Enemies/mhskeleton/mowhawkSkeleton.tscn" id="8_d0qn5"]
 [ext_resource type="PackedScene" uid="uid://dmkp0cco3geso" path="res://Items/axePickup.tscn" id="9_nbb5w"]
+[ext_resource type="PackedScene" uid="uid://c5uxj4aj2njsh" path="res://Items/rapierPickup.tscn" id="10_6ttyb"]
+[ext_resource type="PackedScene" uid="uid://0isjdsbcgbd7" path="res://Items/swordPickup.tscn" id="11_6p3a4"]
+[ext_resource type="PackedScene" uid="uid://dnsgm5sr8ymom" path="res://Enemies/skeleton/skeleton_sans.tscn" id="12_j4dwj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8vdd"]
 texture = ExtResource("3_ou63n")
@@ -39,7 +42,7 @@ sources/0 = SubResource("TileSetAtlasSource_y8vdd")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_hr87b")]
 z_index = 1
-position = Vector2(358, -26)
+position = Vector2(70, -76)
 scale = Vector2(3.5, 3.5)
 metadata/_edit_group_ = true
 
@@ -71,4 +74,34 @@ position = Vector2(236, -366)
 position = Vector2(536, -335)
 
 [node name="axePickup" parent="." instance=ExtResource("9_nbb5w")]
-position = Vector2(334, -88)
+position = Vector2(26, -76)
+
+[node name="rapierPickup" parent="." instance=ExtResource("10_6ttyb")]
+position = Vector2(460, -96)
+
+[node name="swordPickup" parent="." instance=ExtResource("11_6p3a4")]
+position = Vector2(400, -91)
+
+[node name="skeleton" parent="." instance=ExtResource("5_cqalc")]
+position = Vector2(-86, 20)
+
+[node name="skeleton2" parent="." instance=ExtResource("5_cqalc")]
+position = Vector2(-60, -146)
+
+[node name="skeleton3" parent="." instance=ExtResource("5_cqalc")]
+position = Vector2(-133, -8)
+
+[node name="skeleton4" parent="." instance=ExtResource("5_cqalc")]
+position = Vector2(-139, -120)
+
+[node name="skeleton5" parent="." instance=ExtResource("5_cqalc")]
+position = Vector2(2, -202)
+
+[node name="skeleton6" parent="." instance=ExtResource("5_cqalc")]
+position = Vector2(164, -208)
+
+[node name="skeleton7" parent="." instance=ExtResource("5_cqalc")]
+position = Vector2(78, -206)
+
+[node name="skeleton8" parent="." instance=ExtResource("12_j4dwj")]
+position = Vector2(142, -122)

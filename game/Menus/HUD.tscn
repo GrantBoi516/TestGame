@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmu8b0m1vgiid"]
+[gd_scene load_steps=6 format=3 uid="uid://cmu8b0m1vgiid"]
 
 [ext_resource type="Script" path="res://Menus/HP.gd" id="1_qdbvj"]
 [ext_resource type="Texture2D" uid="uid://bv0r66x1k3gi1" path="res://Assets/PH-Heart.png" id="1_y2rs5"]
 [ext_resource type="Texture2D" uid="uid://4mnovrd21qx3" path="res://Assets/PH-SPbar.png" id="2_8r3df"]
 [ext_resource type="Script" path="res://Menus/SP.gd" id="3_x5m45"]
+[ext_resource type="PackedScene" uid="uid://1tgy6r7sdl1v" path="res://Menus/select_menu.tscn" id="5_mo8ru"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -60,4 +61,18 @@ offset_bottom = 72.336
 
 [node name="Label" type="Label" parent="CC"]
 layout_mode = 2
-text = "hi"
+text = "shows coins"
+
+[node name="W" type="VFlowContainer" parent="."]
+offset_top = 96.0
+offset_right = 124.0
+offset_bottom = 136.0
+
+[node name="Label" type="Label" parent="W"]
+layout_mode = 2
+text = "showas weapon"
+
+[node name="select_menu" parent="." instance=ExtResource("5_mo8ru")]
+offset_left = 416.0
+offset_right = 600.0
+offset_bottom = 248.0

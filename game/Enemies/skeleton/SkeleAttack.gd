@@ -16,15 +16,16 @@ func _ready():
 
 
 func _physics_process(_delta):
-	look_at(player.position)#points swing towards player
+	look_at(player.position)
 
 
 
 
-func _on_body_entered(body: Node) -> void:#detects when it collides with and enemy and deals damage
+func _on_body_entered(body: Node) -> void:
 	if body.has_method("player_hit"):
 		$Sprite2D.show()
 		anim.play("attack")
+
 func attack():
 	player.player_hit(damage)
 

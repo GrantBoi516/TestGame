@@ -1,20 +1,20 @@
 extends CharacterBody2D
 
 
-@export var skeleHP = 2
+@export var skeleHP = 4
 @export var speed = 1
+@export var follow_range = 200
 var player_position
 var target_position
+var random = RandomNumberGenerator.new()
+var tmp = 1
 @onready var player = get_parent().get_node("/root/level/CharacterBody2D")
 @onready var attack = $SkeleAttack
 @onready var coin = load("res://Items/coin.tscn")
 @onready var heart = load("res://Items/heart.tscn")
 @onready var SP = get_parent().get_node("HUD/SP")
-var random = RandomNumberGenerator.new()
-@export var follow_range = 200
-var tmp = 1
 @onready var stop = Vector2.ZERO
-
+@onready var anim = $SkeleAnim/AnimationTree
 
 
 
@@ -26,7 +26,7 @@ func _physics_process(_delta):
 
 
 
-func get_hit(damage):#damages and deletes skeleton
+func get_hit(damage):
 	skeleHP -= damage
 	print("enemy was hit, HP:" + str(skeleHP))
 	if skeleHP <= 0:
@@ -50,6 +50,8 @@ func knockback():
 func follow():
 	if player.HP <= 0:
 		target_position = stop
+	if player.HP >= 69:
+		target_position = stop
 	else:
 		player_position = player.position
 		target_position = (player_position - position).normalized()
@@ -59,19 +61,19 @@ func follow():
 
 
 
-func animation(tp):#adjusts animation tree based on movements
+func animation(tp):
 	if position.distance_to(player.position) > follow_range:
-		$SkeleAnim/AnimationTree.get("parameters/playback").travel("Idle")
+		anim.get("parameters/playback").travel("Idle")
 		return
 	else:
 		if tp == Vector2.ZERO:
-			$SkeleAnim/AnimationTree.get("parameters/playback").travel("Idle")
+			anim.get("parameters/playback").travel("Idle")
 		else:
-			$SkeleAnim/AnimationTree.get("parameters/playback").travel("Walk")
-			$SkeleAnim/AnimationTree.set("parameters/Idle/blend_position", tp)
-			$SkeleAnim/AnimationTree.set("parameters/Walk/blend_position", tp)
+			anim.get("parameters/playback").travel("Walk")
+			anim.set("parameters/Idle/blend_position", tp)
+			anim.set("parameters/Walk/blend_position", tp)
 	if position.distance_to(player.position) < 30:
-		$SkeleAnim/AnimationTree.get("parameters/playback").travel("Idle")
+		anim.get("parameters/playback").travel("Idle")
 		return
 
 
@@ -88,10 +90,6 @@ func coin_drop():
 		instancedCoin.position.x = position.x + x
 		tmp += 1
 	tmp = 1
-
-
-
-
 
 func heart_drop():
 	while tmp <= 1:

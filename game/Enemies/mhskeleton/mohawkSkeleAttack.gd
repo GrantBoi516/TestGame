@@ -1,6 +1,7 @@
 extends Area2D
 
 
+
 @onready var anim = $SkeleAttack
 @onready var player = get_parent().get_parent().get_node("/root/level/CharacterBody2D")
 @export var damage := 2
@@ -17,12 +18,12 @@ func _ready():
 
 
 func _physics_process(_delta):
-	look_at(player.position)#points swing towards player
+	look_at(player.position)
 
 
 
 
-func _on_body_entered(body: Node) -> void:#detects when it collides with and enemy and deals damage
+func _on_body_entered(body: Node) -> void:
 	if body.has_method("player_hit"):
 		$Sprite2D.show()
 		anim.play("attack")
