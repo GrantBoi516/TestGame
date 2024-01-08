@@ -27,7 +27,7 @@ func _physics_process(_delta):
 
 
 
-func _processAnim(delta):
+func _processAnim(_delta):
 	animation(target_position)
 
 

@@ -61,7 +61,7 @@ offset_bottom = 72.336
 
 [node name="Label" type="Label" parent="CC"]
 layout_mode = 2
-text = "shows coins"
+text = "coins: 0"
 
 [node name="W" type="VFlowContainer" parent="."]
 offset_top = 96.0
@@ -70,7 +70,7 @@ offset_bottom = 136.0
 
 [node name="Label" type="Label" parent="W"]
 layout_mode = 2
-text = "showas weapon"
+text = "weapon:none"
 
 [node name="select_menu" parent="." instance=ExtResource("5_mo8ru")]
 offset_left = 416.0

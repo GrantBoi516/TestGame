@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://2uvcp2dgpgnv"]
+[gd_scene load_steps=10 format=3 uid="uid://qib1a0chpp31"]
 
-[ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://Player/character_body_2d.tscn" id="1_hr87b"]
-[ext_resource type="PackedScene" uid="uid://cmu8b0m1vgiid" path="res://Menus/HUD.tscn" id="2_qioc0"]
-[ext_resource type="Texture2D" uid="uid://cevkmgdm0n45q" path="res://Assets/FloorTileset.png" id="3_ou63n"]
-[ext_resource type="PackedScene" uid="uid://csjcg38bk0511" path="res://Enviro/door.tscn" id="4_r735r"]
-[ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://Enemies/skeleton/skeleton.tscn" id="5_cqalc"]
-[ext_resource type="PackedScene" uid="uid://b457nhgfmiyk3" path="res://Enviro/wall.tscn" id="6_tinjn"]
-[ext_resource type="PackedScene" uid="uid://bgg3f84vxqocc" path="res://Enemies/mhskeleton/mowhawkSkeleton.tscn" id="7_v0nac"]
+[ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://Player/character_body_2d.tscn" id="1_kx2ou"]
+[ext_resource type="PackedScene" uid="uid://cmu8b0m1vgiid" path="res://Menus/HUD.tscn" id="2_gjx58"]
+[ext_resource type="Texture2D" uid="uid://cevkmgdm0n45q" path="res://Assets/FloorTileset.png" id="3_r2ko0"]
+[ext_resource type="PackedScene" uid="uid://csjcg38bk0511" path="res://Enviro/door.tscn" id="4_0f37e"]
+[ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://Enemies/skeleton/skeleton.tscn" id="5_0rhyi"]
+[ext_resource type="PackedScene" uid="uid://b457nhgfmiyk3" path="res://Enviro/wall.tscn" id="6_816vi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8vdd"]
-texture = ExtResource("3_ou63n")
+texture = ExtResource("3_r2ko0")
 1:1/0 = 0
 2:3/0 = 0
 4:3/0 = 0
@@ -24,10 +23,10 @@ texture = ExtResource("3_ou63n")
 6:7/0 = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7uj02"]
-scenes/1/scene = ExtResource("4_r735r")
-scenes/2/scene = ExtResource("4_r735r")
-scenes/3/scene = ExtResource("5_cqalc")
-scenes/4/scene = ExtResource("6_tinjn")
+scenes/1/scene = ExtResource("4_0f37e")
+scenes/2/scene = ExtResource("4_0f37e")
+scenes/3/scene = ExtResource("5_0rhyi")
+scenes/4/scene = ExtResource("6_816vi")
 
 [sub_resource type="TileSet" id="TileSet_bjc1k"]
 sources/3 = SubResource("TileSetScenesCollectionSource_7uj02")
@@ -35,7 +34,7 @@ sources/0 = SubResource("TileSetAtlasSource_y8vdd")
 
 [node name="level" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_hr87b")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_kx2ou")]
 z_index = 1
 position = Vector2(365, -98)
 scale = Vector2(3.5, 3.5)
@@ -45,7 +44,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -3.8147e-06)
 zoom = Vector2(2, 2)
 
-[node name="HUD" parent="." instance=ExtResource("2_qioc0")]
+[node name="HUD" parent="." instance=ExtResource("2_gjx58")]
 
 [node name="TileMap" type="TileMap" parent="."]
 rotation = 6.28319
@@ -61,9 +60,3 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
-
-[node name="mhskeleton" parent="." instance=ExtResource("7_v0nac")]
-position = Vector2(723, -307)
-
-[node name="skeleton" parent="." instance=ExtResource("5_cqalc")]
-position = Vector2(305, -366)

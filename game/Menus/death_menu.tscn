@@ -15,6 +15,10 @@ size_flags_horizontal = 4
 [node name="CenterContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+text = "YOU DIED"
+
 [node name="try_again" type="Button" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
 text = "Try again"
