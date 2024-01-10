@@ -84,12 +84,9 @@ func movement(v):
 
 
 
-
-
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("click"):
 		weapon.attack()
-
 func player_hit(damage):
 	HP -= damage
 	print("player was hit, HP:" + str(HP))

@@ -225,7 +225,7 @@ advance_mode = 2
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_o7far")
 states/Idle/position = Vector2(384, 75.3333)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_wrsnx")
-states/Walk/position = Vector2(581.333, 56.6667)
+states/Walk/position = Vector2(602.333, 80.6667)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_wmm5k"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_466wr")]
 
 [node name="player" type="CharacterBody2D"]
