@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://2uvcp2dgpgnv"]
+
+[ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://Player/character_body_2d.tscn" id="1_hr87b"]
+[ext_resource type="PackedScene" uid="uid://cmu8b0m1vgiid" path="res://Menus/HUD.tscn" id="2_qioc0"]
+[ext_resource type="Texture2D" uid="uid://cevkmgdm0n45q" path="res://Assets/FloorTileset.png" id="3_ou63n"]
+[ext_resource type="PackedScene" uid="uid://bnr733wi2ii5b" path="res://Enviro/skelspawn.tscn" id="4_r735r"]
+[ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://Enemies/skeleton/skeleton.tscn" id="5_cqalc"]
+[ext_resource type="PackedScene" uid="uid://b457nhgfmiyk3" path="res://Enviro/wall.tscn" id="6_tinjn"]
+[ext_resource type="PackedScene" uid="uid://bx6dwyr8ov0q7" path="res://Enemies/wizardskeleton/wizardSkeleton.tscn" id="7_cedac"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8vdd"]
+texture = ExtResource("3_ou63n")
+1:1/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+2:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7uj02"]
+scenes/1/scene = ExtResource("4_r735r")
+scenes/3/scene = ExtResource("5_cqalc")
+scenes/4/scene = ExtResource("6_tinjn")
+
+[sub_resource type="TileSet" id="TileSet_bjc1k"]
+sources/3 = SubResource("TileSetScenesCollectionSource_7uj02")
+sources/0 = SubResource("TileSetAtlasSource_y8vdd")
+
+[node name="level" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_hr87b")]
+z_index = 1
+position = Vector2(288, -168)
+scale = Vector2(3.5, 3.5)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -3.8147e-06)
+zoom = Vector2(2, 2)
+
+[node name="HUD" parent="." instance=ExtResource("2_qioc0")]
+
+[node name="TileMap" type="TileMap" parent="."]
+rotation = 6.28319
+tile_set = SubResource("TileSet_bjc1k")
+cell_quadrant_size = 8
+format = 2
+layer_0/name = "floor"
+layer_1/name = "physics"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2(11, 7)
+
+[node name="wizardSkeleton" parent="." instance=ExtResource("7_cedac")]
+position = Vector2(127, -78)
+skeleHP = 2
+speed = 1
