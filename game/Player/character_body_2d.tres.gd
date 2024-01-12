@@ -15,8 +15,6 @@ extends CharacterBody2D
 @onready var weapon = none
 
 
-
-
 func _physics_process(_delta):
 	movement(velocity)
 
@@ -25,7 +23,6 @@ func _physics_process(_delta):
 func _processHUD(_delta):
 	get_parent().get_node("HUD/CC/Label").text = "coins:" + str(coins)
 	get_parent().get_node("HUD/W/Label").text = "weapon:" + str(weapon_val)
-
 
 
 
@@ -85,12 +82,17 @@ func movement(v):
 
 
 func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("click"):
+	if event.is_action_pressed("click") && weapon_val != "rapier":
 		weapon.attack()
+	elif event.is_action_pressed("click")  && rapier.ATK_POINTS == 3:
+		rapier.attack1()
+	elif event.is_action_pressed("click") && rapier.ATK_POINTS == 2:
+		rapier.attack2()
+	elif event.is_action_pressed("click") && rapier.ATK_POINTS == 1:
+		rapier.attack3()
 func player_hit(damage):
 	HP -= damage
 	print("player was hit, HP:" + str(HP))
-
 func die():
 	var deathscreen = load("res://Menus/death_menu.tscn").instantiate()
 	get_parent().add_child(deathscreen)
@@ -110,6 +112,7 @@ func get_coin():
 func get_heart():
 	HP += 1
 	print("got heart")
+
 
 
 
