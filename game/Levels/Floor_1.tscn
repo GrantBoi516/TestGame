@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfb4d62sjfre5"]
+
+[ext_resource type="PackedScene" uid="uid://ddfbjau3mk0uv" path="res://Player/character_body_2d.tscn" id="1_3cmlg"]
+[ext_resource type="PackedScene" uid="uid://cmu8b0m1vgiid" path="res://Menus/HUD.tscn" id="2_ps4sk"]
+[ext_resource type="Texture2D" uid="uid://cevkmgdm0n45q" path="res://Assets/FloorTileset.png" id="3_8q7yh"]
+[ext_resource type="PackedScene" uid="uid://csjcg38bk0511" path="res://Enviro/door.tscn" id="4_66t4g"]
+[ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://Enemies/skeleton/skeleton.tscn" id="5_gsdnc"]
+[ext_resource type="PackedScene" uid="uid://b457nhgfmiyk3" path="res://Enviro/wall.tscn" id="6_yl3wy"]
+[ext_resource type="Script" path="res://Levels/coin_spawn.gd" id="7_pssjq"]
+[ext_resource type="Texture2D" uid="uid://dl8rr36xoet8j" path="res://icon.svg" id="8_rnlfa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8vdd"]
+texture = ExtResource("3_8q7yh")
+1:1/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+2:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+2:2/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7uj02"]
+scenes/1/scene = ExtResource("4_66t4g")
+scenes/2/scene = ExtResource("4_66t4g")
+scenes/3/scene = ExtResource("5_gsdnc")
+scenes/4/scene = ExtResource("6_yl3wy")
+
+[sub_resource type="TileSet" id="TileSet_bjc1k"]
+sources/3 = SubResource("TileSetScenesCollectionSource_7uj02")
+sources/0 = SubResource("TileSetAtlasSource_y8vdd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m672o"]
+
+[node name="level" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_3cmlg")]
+z_index = 1
+position = Vector2(32.0001, -16)
+scale = Vector2(3.5, 3.5)
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-2.09808e-05, 5.72205e-06)
+zoom = Vector2(2, 2)
+
+[node name="HUD" parent="." instance=ExtResource("2_ps4sk")]
+
+[node name="TileMap" type="TileMap" parent="."]
+rotation = 6.28319
+tile_set = SubResource("TileSet_bjc1k")
+cell_quadrant_size = 8
+format = 2
+layer_0/name = "floor"
+layer_1/name = "physics"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+
+[node name="coin_spawn" type="Area2D" parent="."]
+script = ExtResource("7_pssjq")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="coin_spawn"]
+scale = Vector2(0.125, 0.132813)
+texture = ExtResource("8_rnlfa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin_spawn"]
+shape = SubResource("RectangleShape2D_m672o")
+
+[node name="skeleton" parent="." instance=ExtResource("5_gsdnc")]
+position = Vector2(-168, -192)
+
+[connection signal="body_entered" from="coin_spawn" to="coin_spawn" method="_on_body_entered"]
