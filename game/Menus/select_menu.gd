@@ -18,3 +18,8 @@ func _on_rapier_pressed():
 	player.get_node("hitbox").disabled = false
 	player.HP = 4
 	queue_free()
+func _on_crossbow_pressed():
+	player.crossbow_change()
+	player.get_node("hitbox").disabled = false
+	player.HP = 4
+	queue_free()

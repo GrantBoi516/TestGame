@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://1tgy6r7sdl1v"]
+[gd_scene load_steps=3 format=3 uid="uid://1tgy6r7sdl1v"]
 
 [ext_resource type="Script" path="res://Menus/select_menu.gd" id="1_gm58t"]
+[ext_resource type="FontFile" uid="uid://cdgp5uuyiqv4l" path="res://Assets/dpcomic.ttf" id="2_qxl3r"]
 
 [node name="select_menu" type="Control"]
 layout_mode = 3
@@ -22,24 +23,35 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qxl3r")
 text = "Choose a weapon"
 
 [node name="Sword" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qxl3r")
 text = "Sword"
 
 [node name="Axe" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qxl3r")
 text = "Axe"
 
 [node name="Rapier" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qxl3r")
 text = "Rapier"
+
+[node name="Crossbow" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qxl3r")
+text = "Crossbow"
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qxl3r")
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Sword" to="." method="_on_sword_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Axe" to="." method="_on_axe_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Rapier" to="." method="_on_rapier_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Crossbow" to="." method="_on_crossbow_pressed"]

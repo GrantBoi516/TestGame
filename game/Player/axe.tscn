@@ -109,7 +109,7 @@ hframes = 12
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(23.6924, -2.76966)
-rotation = 9.27617
+rotation = 2.99298
 shape = SubResource("CapsuleShape2D_hf7um")
 disabled = true
 
@@ -117,5 +117,7 @@ disabled = true
 libraries = {
 "": SubResource("AnimationLibrary_q88up")
 }
+
+[node name="BurnTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

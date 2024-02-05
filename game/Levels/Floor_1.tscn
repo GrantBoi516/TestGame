@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://csjcg38bk0511" path="res://Enviro/door.tscn" id="4_66t4g"]
 [ext_resource type="PackedScene" uid="uid://d3x6nbyep3fdr" path="res://Enemies/skeleton/skeleton.tscn" id="5_gsdnc"]
 [ext_resource type="PackedScene" uid="uid://b457nhgfmiyk3" path="res://Enviro/wall.tscn" id="6_yl3wy"]
-[ext_resource type="PackedScene" uid="uid://bgg3f84vxqocc" path="res://Enemies/mhskeleton/mowhawkSkeleton.tscn" id="7_kvhjt"]
-[ext_resource type="PackedScene" uid="uid://cy3iuknbsshv" path="res://Enemies/wskeleton/wizskeleton.tscn" id="8_dq1rq"]
-[ext_resource type="PackedScene" uid="uid://dnsgm5sr8ymom" path="res://Enemies/skeleton/skeleton_sans.tscn" id="9_0a45t"]
+[ext_resource type="Script" path="res://Levels/coin_spawn.gd" id="7_pssjq"]
+[ext_resource type="Texture2D" uid="uid://dl8rr36xoet8j" path="res://icon.svg" id="8_rnlfa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8vdd"]
 texture = ExtResource("3_8q7yh")
@@ -37,16 +36,18 @@ scenes/4/scene = ExtResource("6_yl3wy")
 sources/3 = SubResource("TileSetScenesCollectionSource_7uj02")
 sources/0 = SubResource("TileSetAtlasSource_y8vdd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m672o"]
+
 [node name="level" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_3cmlg")]
 z_index = 1
-position = Vector2(287, -158)
+position = Vector2(32.0001, -16)
 scale = Vector2(3.5, 3.5)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(0, -3.8147e-06)
+position = Vector2(-2.09808e-05, 5.72205e-06)
 zoom = Vector2(2, 2)
 
 [node name="HUD" parent="." instance=ExtResource("2_ps4sk")]
@@ -65,13 +66,18 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
-[node name="mhskeleton" parent="." instance=ExtResource("7_kvhjt")]
-position = Vector2(136, -272)
+[node name="coin_spawn" type="Area2D" parent="."]
+script = ExtResource("7_pssjq")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="coin_spawn"]
+scale = Vector2(0.125, 0.132813)
+texture = ExtResource("8_rnlfa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin_spawn"]
+shape = SubResource("RectangleShape2D_m672o")
 
 [node name="skeleton" parent="." instance=ExtResource("5_gsdnc")]
-position = Vector2(481, -283)
+position = Vector2(-168, -192)
 
-[node name="wizskeleton" parent="." instance=ExtResource("8_dq1rq")]
-position = Vector2(203, -159)
-
-[node name="skeleton2" parent="." instance=ExtResource("9_0a45t")]
+[connection signal="body_entered" from="coin_spawn" to="coin_spawn" method="_on_body_entered"]

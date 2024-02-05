@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw4ov7edju8eh"]
+[gd_scene load_steps=3 format=3 uid="uid://dw4ov7edju8eh"]
 
 [ext_resource type="Script" path="res://Menus/death_menu.gd" id="1_6bo6j"]
+[ext_resource type="FontFile" uid="uid://cdgp5uuyiqv4l" path="res://Assets/dpcomic.ttf" id="2_bab30"]
 
 [node name="death_menu" type="CanvasLayer"]
 script = ExtResource("1_6bo6j")
@@ -17,14 +18,17 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bab30")
 text = "YOU DIED"
 
 [node name="try_again" type="Button" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bab30")
 text = "Try again"
 
 [node name="main_menu" type="Button" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bab30")
 text = "Main menu"
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/try_again" to="." method="_on_try_again_pressed"]

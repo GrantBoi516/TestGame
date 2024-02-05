@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4t5ng1250duq"]
+[gd_scene load_steps=3 format=3 uid="uid://4t5ng1250duq"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_i8oan"]
+[ext_resource type="FontFile" uid="uid://cdgp5uuyiqv4l" path="res://Assets/dpcomic.ttf" id="2_wp4l5"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -24,10 +25,12 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wp4l5")
 text = "play"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wp4l5")
 text = "quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

@@ -1,7 +1,6 @@
-extends Area2D
+extends "res://Player/weapon.gd"
 @onready var anim = $WeaponAnim
 @export var damage := 1
-
 
 
 func _physics_process(_delta):
@@ -11,10 +10,8 @@ func _physics_process(_delta):
 
 func sword_attack():
 	anim.play("swordSwing")
-	
 func attack():
 		sword_attack()
-
 
 
 func _on_body_entered(body: Node) -> void:
