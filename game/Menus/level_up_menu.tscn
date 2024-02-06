@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://8cyd76w2vhkc"]
+
+[ext_resource type="FontFile" uid="uid://cdgp5uuyiqv4l" path="res://Assets/dpcomic.ttf" id="1_dkp7x"]
+[ext_resource type="Script" path="res://Menus/level_up_menu.gd" id="1_q1741"]
+
+[node name="level_up_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 488.0
+offset_top = 200.0
+offset_right = 488.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 1.8)
+script = ExtResource("1_q1741")
+
+[node name="Title" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dkp7x")
+text = "  Level up!"
+
+[node name="UpgradeSelect" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 31.1111
+offset_right = 92.0
+offset_bottom = 71.1111
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpgradeSelect"]
+layout_mode = 2
+
+[node name="Fire" type="Button" parent="UpgradeSelect/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dkp7x")
+
+[node name="Lightning" type="Button" parent="UpgradeSelect/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dkp7x")
+
+[node name="Ice" type="Button" parent="UpgradeSelect/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dkp7x")
+
+[connection signal="pressed" from="UpgradeSelect/HBoxContainer/Fire" to="." method="_on_fire_pressed"]
+[connection signal="pressed" from="UpgradeSelect/HBoxContainer/Lightning" to="." method="_on_lightning_pressed"]
+[connection signal="pressed" from="UpgradeSelect/HBoxContainer/Ice" to="." method="_on_ice_pressed"]
