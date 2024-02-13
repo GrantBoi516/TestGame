@@ -249,9 +249,12 @@ libraries = {
 }
 
 [node name="AnimTree" type="AnimationTree" parent="PlayerAnim"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jl8de")
+}
 tree_root = SubResource("AnimationNodeStateMachine_nvx37")
 anim_player = NodePath("..")
-active = true
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.541667, -0.215116)
 

@@ -259,7 +259,7 @@ script = ExtResource("1_sx07e")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_fi2nq")
 hframes = 16
-frame = 8
+frame = 11
 
 [node name="SkeleAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -267,9 +267,12 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="SkeleAnim"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_n3l13")
+}
 tree_root = SubResource("AnimationNodeStateMachine_ay7nu")
 anim_player = NodePath("..")
-active = true
 parameters/Idle/blend_position = Vector2(0.642523, 0.0755813)
 parameters/Walk/blend_position = Vector2(-0.00514019, -0.0174419)
 

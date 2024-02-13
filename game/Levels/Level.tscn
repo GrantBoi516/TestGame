@@ -59,7 +59,6 @@ zoom = Vector2(2, 2)
 
 [node name="SpawnArea" type="Area2D" parent="CharacterBody2D/Camera2D"]
 position = Vector2(2.09808e-05, -5.72205e-06)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Camera2D/SpawnArea"]
 position = Vector2(-90.8572, 0.285715)
